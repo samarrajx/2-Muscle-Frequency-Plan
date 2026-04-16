@@ -193,7 +193,7 @@ function scrollActiveTabIntoView() {
 function initCollapsibleSections() {
 
   // Helper — wire up a title → content collapse toggle
-  function makeToggle(titleEl, contentEl) {
+  function makeToggle(titleEl, contentEl, defaultCollapsed = true) {
     if (!titleEl || !contentEl) return;
 
     // Inject collapse arrow
@@ -206,14 +206,19 @@ function initCollapsibleSections() {
 
     contentEl.classList.add('collapsible-body');
 
-    // Restore persisted state
+    // Restore persisted state or use default
     const key = 'samar_collapse_' + titleEl.textContent.trim().substring(0, 30);
+    let shouldCollapse = defaultCollapsed;
     try {
-      if (localStorage.getItem(key) === '1') {
-        contentEl.classList.add('is-collapsed');
-        titleEl.classList.add('is-collapsed');
-      }
+      const saved = localStorage.getItem(key);
+      if (saved === '1') shouldCollapse = true;
+      if (saved === '0') shouldCollapse = false;
     } catch (_) {}
+
+    if (shouldCollapse) {
+      contentEl.classList.add('is-collapsed');
+      titleEl.classList.add('is-collapsed');
+    }
 
     titleEl.addEventListener('click', () => {
       const collapsed = contentEl.classList.toggle('is-collapsed');
@@ -228,12 +233,10 @@ function initCollapsibleSections() {
     let contentEl = null;
 
     if (parent.classList.contains('nutrition-section')) {
-      // Wrap nutri-grid + nutri-note into one collapsible div
+      // ONLY wrap nutri-note into collapsible div to keep macros visible!
       const wrapper = document.createElement('div');
       wrapper.className = 'section-body-wrap';
-      const g = parent.querySelector('.nutri-grid');
       const n = parent.querySelector('.nutri-note');
-      if (g) wrapper.appendChild(g);
       if (n) wrapper.appendChild(n);
       parent.appendChild(wrapper);
       contentEl = wrapper;
@@ -243,7 +246,7 @@ function initCollapsibleSections() {
       contentEl = title.nextElementSibling;
     }
 
-    makeToggle(title, contentEl);
+    makeToggle(title, contentEl, true); // DEFAULT CLOSED
   });
 
   // 2. Exercise group labels → collapse their exercises
@@ -257,14 +260,14 @@ function initCollapsibleSections() {
     exercises.forEach(ex => wrapper.appendChild(ex));
     group.appendChild(wrapper);
 
-    makeToggle(label, wrapper);
+    makeToggle(label, wrapper, false); // DEFAULT OPEN (To show exercises initially)
   });
 
   // 3. Cardio block titles → collapse the week breakdown
   document.querySelectorAll('.cardio-block').forEach(block => {
     const title = block.querySelector('.cardio-title');
     const weeks = block.querySelector('.cardio-weeks');
-    makeToggle(title, weeks);
+    makeToggle(title, weeks, true); // DEFAULT CLOSED
   });
 }
 

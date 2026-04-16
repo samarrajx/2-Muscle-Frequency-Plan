@@ -415,6 +415,15 @@ footer{
     <button id="sidebar-close" aria-label="Close menu">✕</button>
   </div>
   <div class="sidebar-links">
+    <div class="sb-label">Workout Plan</div>
+    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(0,null,'sb')">Day 1: Push</a>
+    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(1,null,'sb')">Day 2: Pull</a>
+    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(2,null,'sb')">Day 3: Legs</a>
+    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(3,null,'sb')">Day 4: Chest & Back</a>
+    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(4,null,'sb')">Day 5: Arms & Shoulders</a>
+    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(5,null,'sb')">Day 6: Legs & Cardio</a>
+    <a href="#" class="sb-link sb-rest" style="color:var(--dim)" onclick="closeSidebar(); showDay(6,null,'sb')">Rest Day</a>
+
     <div class="sb-label">Overview</div>
     <a href="#" class="sb-link" onclick="closeSidebar(); document.querySelector('.hero').scrollIntoView();">Profile & Stats</a>
     <a href="#" class="sb-link" onclick="closeSidebar(); document.querySelector('.phases').scrollIntoView();">Training Phases</a>
