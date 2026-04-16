@@ -305,9 +305,6 @@ body.focus-mode #exit-focus-btn {
   z-index: 800;
   background: var(--bg);
   transition: top 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-  z-index: 100;
-  background: var(--bg);
   /* Horizontally scrollable on mobile */
   display: flex;
   flex-wrap: nowrap;
