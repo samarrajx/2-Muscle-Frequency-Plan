@@ -416,21 +416,37 @@ footer{
   </div>
   <div class="sidebar-links">
     <div class="sb-label">Workout Plan</div>
-    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(0,null,'sb')">Day 1: Push</a>
-    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(1,null,'sb')">Day 2: Pull</a>
-    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(2,null,'sb')">Day 3: Legs</a>
-    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(3,null,'sb')">Day 4: Chest & Back</a>
-    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(4,null,'sb')">Day 5: Arms & Shoulders</a>
-    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(5,null,'sb')">Day 6: Legs & Cardio</a>
-    <a href="#" class="sb-link sb-rest" style="color:var(--dim)" onclick="closeSidebar(); showDay(6,null,'sb')">Rest Day</a>
+    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(0,null,'sb')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sb-icon"><path d="m21.6 15.6-3.8-1.5a2 2 0 0 0-2.3.8l-1.4 2A15 15 0 0 1 5.1 7.9l2-1.4a2 2 0 0 0 .8-2.3l-1.5-3.8A2 2 0 0 0 4 0h-2A2 2 0 0 0 0 2c0 11 9 20 20 20a2 2 0 0 0 2-2v-2a2 2 0 0 0-1-1.6z"/><use href="#i-dumbell" stroke-width="2" transform="translate(1,1)"/></svg> Day 1: Push
+    </a>
+    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(1,null,'sb')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sb-icon"><path d="M22 6v16h-20v-16h20zm0-4h-20v2h20v-2zm-18 6v12h16v-12h-16z"/></svg> Day 2: Pull
+    </a>
+    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(2,null,'sb')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sb-icon"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg> Day 3: Legs
+    </a>
+    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(3,null,'sb')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sb-icon"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg> Day 4: Chest & Back
+    </a>
+    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(4,null,'sb')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sb-icon"><path d="M5 12h14"/><path d="M12 5v14"/></svg> Day 5: Arms & Shoulders
+    </a>
+    <a href="#" class="sb-link" onclick="closeSidebar(); showDay(5,null,'sb')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sb-icon"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Day 6: Legs & Cardio
+    </a>
+    <a href="#" class="sb-link sb-rest" style="color:var(--dim)" onclick="closeSidebar(); showDay(6,null,'sb')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sb-icon"><path d="M12 2v20"/><path d="M22 12H2"/></svg> Rest Day
+    </a>
 
     <div class="sb-label">Overview</div>
-    <a href="#" class="sb-link" onclick="closeSidebar(); document.querySelector('.hero').scrollIntoView();">Profile & Stats</a>
-    <a href="#" class="sb-link" onclick="closeSidebar(); document.querySelector('.phases').scrollIntoView();">Training Phases</a>
-    <a href="#" class="sb-link" onclick="closeSidebar(); document.querySelector('.tracker-wrap').scrollIntoView();">Weekly Tracker</a>
+    <a href="#" class="sb-link" onclick="closeSidebar(); showOverview();">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sb-icon"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="3" x2="21" y1="9" y2="9"/><path d="m9 16 3-3 3 3"/></svg> Profile & Complete Plan
+    </a>
     <div class="sb-label">Settings</div>
     <div class="sb-item">
-      <span>Theme</span>
+      <span style="display:flex;align-items:center;gap:12px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sb-icon"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Theme
+      </span>
       <button id="theme-toggle" aria-label="Toggle theme">
         <span class="icon-sun">☀️</span><span class="icon-moon">🌙</span>
       </button>
@@ -440,10 +456,15 @@ footer{
 
 <!-- ══════════════ APP HEADER (FIXED) ══════════════ -->
 <header id="app-header">
-  <button id="menu-btn" aria-label="Open menu">☰</button>
+  <button id="menu-btn" aria-label="Open menu">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+  </button>
   <span class="app-header-title">Samar Raj</span>
   <div style="width:24px"></div><!-- Spacer for centering -->
 </header>
+<button id="exit-focus-btn" onclick="exitFocusMode()">
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> Back to Nav
+</button>
 
 <div class="wrap" id="main-scroll-wrap">
 
@@ -472,6 +493,8 @@ footer{
   </button>
 </nav>
 
+<!-- ══════════════ OVERVIEW PANEL (SPA VIEW) ══════════════ -->
+<div class="day-panel active" id="overview-panel">
 <!-- ══════════════ HERO ══════════════ -->
 <div class="hero">
   <div class="hero-top">
@@ -535,6 +558,44 @@ footer{
   </div>
 </div>
 
+<!-- ══════════════ DAILY MOBILITY PROTOCOL ══════════════ -->
+<div class="section-title">Daily Mobility — 10 Min (Every Day, Non-Negotiable)</div>
+<div class="mobility-block">
+  <div class="mob-title">🧘 Samar's Daily Movement Protocol</div>
+  <div class="mob-grid">
+    <div class="mob-item"><div class="mob-ex">Hip Flexor Stretch</div><div class="mob-detail">60 sec each side · Deep lunge · Anterior hip opening</div></div>
+    <div class="mob-item"><div class="mob-ex">Thoracic Rotation</div><div class="mob-detail">10 reps each side · Thread needle or open book · Punching power</div></div>
+    <div class="mob-item"><div class="mob-ex">Deep Squat Hold</div><div class="mob-detail">60 sec hold · Feet shoulder-width · Fight stance base</div></div>
+    <div class="mob-item"><div class="mob-ex">Shoulder Dislocates</div><div class="mob-detail">15 reps · Band or broomstick · Rotator cuff health</div></div>
+    <div class="mob-item"><div class="mob-ex">World's Greatest Stretch</div><div class="mob-detail">5 reps each side · Hip + thoracic + hamstring</div></div>
+    <div class="mob-item"><div class="mob-ex">Ankle Circles</div><div class="mob-detail">10 each direction each ankle · Footwork foundation</div></div>
+  </div>
+</div>
+
+<!-- ══════════════ NUTRITION ══════════════ -->
+<div class="nutrition-section">
+  <div class="section-title">Nutrition Plan for Samar — 67 kg, MMA Prep</div>
+  <div class="nutri-grid">
+    <div class="nutri-card cal"><div class="nutri-n">2,600<span class="nutri-u">kcal</span></div><div class="nutri-l">Daily Calories</div><div class="nutri-sub">~200 kcal surplus above maintenance. Build muscle, fuel MMA training.</div></div>
+    <div class="nutri-card pro"><div class="nutri-n">150<span class="nutri-u">g</span></div><div class="nutri-l">Protein / Day</div><div class="nutri-sub">2.2g per kg bodyweight. Non-negotiable for muscle repair + growth.</div></div>
+    <div class="nutri-card carb"><div class="nutri-n">320<span class="nutri-u">g</span></div><div class="nutri-l">Carbohydrates</div><div class="nutri-sub">Primary fuel for training. Rice, roti, oats, banana, sweet potato.</div></div>
+    <div class="nutri-card fat"><div class="nutri-n">70<span class="nutri-u">g</span></div><div class="nutri-l">Healthy Fats</div><div class="nutri-sub">Ghee, peanut butter, eggs, almonds. Joint health + hormone support.</div></div>
+    <div class="nutri-card water"><div class="nutri-n">3.5<span class="nutri-u">L</span></div><div class="nutri-l">Daily Water</div><div class="nutri-sub">More on training days. Dehydration kills performance and recovery.</div></div>
+    <div class="nutri-card timing"><div class="nutri-n">Pre + Post</div><div class="nutri-l">Meal Timing</div><div class="nutri-sub">Pre: carbs + protein 1 hr before. Post: 40g protein within 30 min after.</div></div>
+  </div>
+  <div class="nutri-note">
+    <strong>Samar's Daily Protein Targets (Indian Diet)</strong> — Paneer (100g = 18g) · Eggs (1 = 6g) · Dal (1 cup = 9g) · Chicken breast (100g = 31g) · Curd (200g = 7g) · Whey protein scoop (25–30g). Hitting 150g from food alone is hard — a whey protein shake post-workout is the most efficient solution. <strong>Eat your biggest carb meals before and after training.</strong> On rest days, drop calories to ~2,300 kcal by reducing carbs slightly.
+  </div>
+</div>
+
+<!-- ══════════════ WEEK TRACKER ══════════════ -->
+<div class="tracker-wrap">
+  <div class="section-title">Week Tracker</div>
+  <div class="tracker-grid" id="tracker"></div>
+</div>
+
+</div><!-- /overview-panel -->
+
 <!-- ══════════════ TABS ══════════════ -->
 <div class="tab-bar">
   <button class="tab active" onclick="showDay(0,this)">Day 1 — Push</button>
@@ -547,7 +608,7 @@ footer{
 </div>
 
 <!-- ════════════════════════ DAY 1 ════════════════════════ -->
-<div class="day-panel active" id="dp-0">
+<div class="day-panel" id="dp-0">
   <div class="day-hero">
     <div>
       <div class="day-label-tag">Day 01 · Primary Push · Kept + Refined</div>
@@ -1232,41 +1293,7 @@ footer{
   </div>
 </div>
 
-<!-- ══════════════ DAILY MOBILITY PROTOCOL ══════════════ -->
-<div class="section-title">Daily Mobility — 10 Min (Every Day, Non-Negotiable)</div>
-<div class="mobility-block">
-  <div class="mob-title">🧘 Samar's Daily Movement Protocol</div>
-  <div class="mob-grid">
-    <div class="mob-item"><div class="mob-ex">Hip Flexor Stretch</div><div class="mob-detail">60 sec each side · Deep lunge · Anterior hip opening</div></div>
-    <div class="mob-item"><div class="mob-ex">Thoracic Rotation</div><div class="mob-detail">10 reps each side · Thread needle or open book · Punching power</div></div>
-    <div class="mob-item"><div class="mob-ex">Deep Squat Hold</div><div class="mob-detail">60 sec hold · Feet shoulder-width · Fight stance base</div></div>
-    <div class="mob-item"><div class="mob-ex">Shoulder Dislocates</div><div class="mob-detail">15 reps · Band or broomstick · Rotator cuff health</div></div>
-    <div class="mob-item"><div class="mob-ex">World's Greatest Stretch</div><div class="mob-detail">5 reps each side · Hip + thoracic + hamstring</div></div>
-    <div class="mob-item"><div class="mob-ex">Ankle Circles</div><div class="mob-detail">10 each direction each ankle · Footwork foundation</div></div>
-  </div>
-</div>
 
-<!-- ══════════════ NUTRITION ══════════════ -->
-<div class="nutrition-section">
-  <div class="section-title">Nutrition Plan for Samar — 67 kg, MMA Prep</div>
-  <div class="nutri-grid">
-    <div class="nutri-card cal"><div class="nutri-n">2,600<span class="nutri-u">kcal</span></div><div class="nutri-l">Daily Calories</div><div class="nutri-sub">~200 kcal surplus above maintenance. Build muscle, fuel MMA training.</div></div>
-    <div class="nutri-card pro"><div class="nutri-n">150<span class="nutri-u">g</span></div><div class="nutri-l">Protein / Day</div><div class="nutri-sub">2.2g per kg bodyweight. Non-negotiable for muscle repair + growth.</div></div>
-    <div class="nutri-card carb"><div class="nutri-n">320<span class="nutri-u">g</span></div><div class="nutri-l">Carbohydrates</div><div class="nutri-sub">Primary fuel for training. Rice, roti, oats, banana, sweet potato.</div></div>
-    <div class="nutri-card fat"><div class="nutri-n">70<span class="nutri-u">g</span></div><div class="nutri-l">Healthy Fats</div><div class="nutri-sub">Ghee, peanut butter, eggs, almonds. Joint health + hormone support.</div></div>
-    <div class="nutri-card water"><div class="nutri-n">3.5<span class="nutri-u">L</span></div><div class="nutri-l">Daily Water</div><div class="nutri-sub">More on training days. Dehydration kills performance and recovery.</div></div>
-    <div class="nutri-card timing"><div class="nutri-n">Pre + Post</div><div class="nutri-l">Meal Timing</div><div class="nutri-sub">Pre: carbs + protein 1 hr before. Post: 40g protein within 30 min after.</div></div>
-  </div>
-  <div class="nutri-note">
-    <strong>Samar's Daily Protein Targets (Indian Diet)</strong> — Paneer (100g = 18g) · Eggs (1 = 6g) · Dal (1 cup = 9g) · Chicken breast (100g = 31g) · Curd (200g = 7g) · Whey protein scoop (25–30g). Hitting 150g from food alone is hard — a whey protein shake post-workout is the most efficient solution. <strong>Eat your biggest carb meals before and after training.</strong> On rest days, drop calories to ~2,300 kcal by reducing carbs slightly.
-  </div>
-</div>
-
-<!-- ══════════════ WEEK TRACKER ══════════════ -->
-<div class="tracker-wrap">
-  <div class="section-title">Week Tracker</div>
-  <div class="tracker-grid" id="tracker"></div>
-</div>
 
 <footer>
   <span class="footer-name">Samar Raj</span>

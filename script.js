@@ -13,9 +13,33 @@ function vibrateTap() {
   if (navigator.vibrate) try { navigator.vibrate(10); } catch (_) {}
 }
 
+/* ── SPA OVERVIEW ── */
+function showOverview() {
+  vibrateTap();
+  document.querySelectorAll('.day-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.bnav-item').forEach(b => b.classList.remove('active'));
+  
+  const panel = document.getElementById('overview-panel');
+  if (panel) panel.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'auto' });
+  exitFocusMode();
+}
+
+/* ── INTERACTIVE FOCUS MODE ── */
+function enterFocusMode() {
+  document.body.classList.add('focus-mode');
+  vibrateTap();
+}
+function exitFocusMode() {
+  document.body.classList.remove('focus-mode');
+  vibrateTap();
+}
+
 /* ── TAB / DAY SWITCHER ── */
 function showDay(index, element, source) {
   vibrateTap();
+  exitFocusMode();
 
   // Save scroll position for currently active day before switching
   const currentTab = document.querySelector('.tab.active');
@@ -54,6 +78,9 @@ function showDay(index, element, source) {
 function toggle(element) {
   vibrateTap();
   element.classList.toggle('open');
+  if (element.classList.contains('open')) {
+    enterFocusMode();
+  }
 }
 
 /* ── RESTORE LAST OPENED DAY ON LOAD ── */
@@ -347,19 +374,7 @@ function initSidebar() {
 
 /* ── FOCUS MODE ── */
 function initFocusMode() {
-  let lastScrollY = window.scrollY;
-  window.addEventListener('scroll', () => {
-    const currentScrollY = window.scrollY;
-    // Scroll down past 100px -> hide Nav (Focus mode)
-    if (currentScrollY > 100 && currentScrollY > lastScrollY) {
-      document.body.classList.add('focus-mode');
-    } 
-    // Scroll up -> show Nav
-    else if (currentScrollY < lastScrollY) {
-      document.body.classList.remove('focus-mode');
-    }
-    lastScrollY = currentScrollY;
-  }, { passive: true });
+  // Focus mode is now triggered interactively via exercise tap.
 }
 
 /* ── PULL TO REFRESH ── */

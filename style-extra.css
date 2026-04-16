@@ -24,15 +24,15 @@ body.light-theme {
   /* Adjusting colors very slightly for light background legibility while keeping visual identity */
   --red: #e11d48;
   --red-glow: rgba(225,29,72,0.12);
-  --gold: #d97706;
-  --gold-dim: rgba(217,119,6,0.1);
-  --teal: #0d9488;
-  --teal-dim: rgba(13,148,136,0.1);
-  --blue: #2563eb;
-  --blue-dim: rgba(37,99,235,0.1);
-  --purple: #7e22ce;
-  --orange: #ea580c;
-  --green: #16a34a;
+  --gold: #b45309; /* Darker for better contrast */
+  --gold-dim: rgba(217,119,6,0.15);
+  --teal: #0f766e; /* Darker for better contrast */
+  --teal-dim: rgba(13,148,136,0.15);
+  --blue: #1d4ed8;
+  --blue-dim: rgba(37,99,235,0.15);
+  --purple: #6b21a8;
+  --orange: #c2410c;
+  --green: #15803d;
 }
 
 /* Hide dark mode noise in light mode for cleanliness */
@@ -160,7 +160,8 @@ body {
 .sb-link, .sb-item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 12px;
   padding: 14px 24px;
   color: var(--text);
   text-decoration: none;
@@ -168,8 +169,15 @@ body {
   font-weight: 500;
   transition: background 0.15s;
 }
+.sb-item {
+  justify-content: space-between;
+}
 .sb-link:hover, .sb-item:hover {
   background: var(--surface);
+}
+.sb-icon {
+  opacity: 0.7;
+  flex-shrink: 0;
 }
 
 /* ── REWORKED THEME TOGGLE (IN SIDEBAR NOW) ── */
@@ -256,10 +264,38 @@ body.focus-mode #app-header {
   transform: translateY(-100%);
 }
 body.focus-mode #bottom-nav {
-  transform: translateY(100%);
+  transform: translateY(150%);
 }
 body.focus-mode .tab-bar {
-  top: 0; /* Shifts up since header is gone */
+  top: -100px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── EXIT FOCUS BUTTON ── */
+#exit-focus-btn {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  background: var(--red);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 8px 16px;
+  font-family: 'Sora', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 1100;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(225, 29, 72, 0.4);
+  transform: translateY(-150%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+body.focus-mode #exit-focus-btn {
+  transform: translateY(0);
 }
 
 /* ── STICKY TAB BAR (Adjusted for Header) ── */
