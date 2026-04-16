@@ -235,11 +235,75 @@ function initCollapsibleSections() {
   });
 }
 
+/* ── THEME TOGGLE ── */
+function initTheme() {
+  const toggleBtn = document.getElementById('theme-toggle');
+  if (!toggleBtn) return;
+
+  const currentTheme = localStorage.getItem('samar_theme');
+  if (currentTheme === 'light') {
+    document.body.classList.add('light-theme');
+  }
+
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-theme');
+    const isLight = document.body.classList.contains('light-theme');
+    localStorage.setItem('samar_theme', isLight ? 'light' : 'dark');
+  });
+}
+
+/* ── SWIPE NAVIGATION ── */
+function initSwipeNavigation() {
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const swipeThreshold = 50;
+
+  document.addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
+
+  function handleSwipe() {
+    // Only proceed if swipe is greater than threshold
+    if (Math.abs(touchEndX - touchStartX) < swipeThreshold) return;
+
+    // Don't swipe if trying to scroll horizontally inside an element like a table (if any existed)
+    // Or if inside the tracker row
+    
+    // Find currently active day index
+    const tabs = document.querySelectorAll('.tab');
+    let currentIndex = -1;
+    tabs.forEach((t, i) => { if (t.classList.contains('active')) currentIndex = i; });
+    if (currentIndex === -1) return;
+
+    if (touchEndX < touchStartX) {
+      // Swiped Left — Go to Next Day
+      if (currentIndex < tabs.length - 1) {
+        showDay(currentIndex + 1, tabs[currentIndex + 1]);
+        setTimeout(scrollActiveTabIntoView, 50);
+      }
+    }
+    if (touchEndX > touchStartX) {
+      // Swiped Right — Go to Previous Day
+      if (currentIndex > 0) {
+        showDay(currentIndex - 1, tabs[currentIndex - 1]);
+        setTimeout(scrollActiveTabIntoView, 50);
+      }
+    }
+  }
+}
+
 /* ── INIT ── */
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
   restoreLastDay();
   buildTracker();
   initCollapsibleSections();
+  initSwipeNavigation();
   setupInstallPrompt();
   registerSW();
 
