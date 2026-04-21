@@ -219,7 +219,7 @@ function initSetTracker() {
       detail.insertBefore(tracker, detail.firstChild);
  
       // Initial check on load
-      updateExerciseCompletion(ex);
+      requestAnimationFrame(() => updateExerciseCompletion(ex));
     });
   });
 }
