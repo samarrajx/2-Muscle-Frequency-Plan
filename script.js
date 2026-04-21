@@ -209,6 +209,7 @@ function initSetTracker() {
             if (done) cur[key] = true; else delete cur[key];
             localStorage.setItem('samar_sets', JSON.stringify(cur));
           } catch (_) {}
+          updateExerciseCompletion(ex);
         };
 
         tracker.appendChild(btn);
@@ -216,8 +217,17 @@ function initSetTracker() {
 
       // Inject at the top of detail view
       detail.insertBefore(tracker, detail.firstChild);
+ 
+      // Initial check on load
+      updateExerciseCompletion(ex);
     });
   });
+}
+ 
+function updateExerciseCompletion(exEl) {
+  const buttons = exEl.querySelectorAll('.set-check');
+  const allDone = buttons.length > 0 && Array.from(buttons).every(btn => btn.classList.contains('done'));
+  exEl.classList.toggle('ex-completed', allDone);
 }
 
 function checkSundayReset() {

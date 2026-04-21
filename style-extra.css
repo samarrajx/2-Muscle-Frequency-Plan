@@ -837,3 +837,30 @@ footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 60px;
     font-size: 20px;
   }
 }
+ 
+ /* ── COMPLETED EXERCISE INDICATOR ── */
+ .ex.ex-completed {
+   background: rgba(34, 197, 94, 0.05);
+ }
+ .ex.ex-completed .ex-n {
+   color: var(--green);
+   font-weight: 800;
+ }
+ .ex.ex-completed .ex-n::after {
+   content: ' ✓';
+   font-size: 10px;
+   vertical-align: top;
+ }
+ .ex.ex-completed .ex-name {
+   color: var(--dim);
+   text-decoration: line-through;
+   text-decoration-color: var(--green);
+   text-decoration-thickness: 2px;
+ }
+ .ex.ex-completed .ex-badge {
+   border-color: var(--green);
+   background: rgba(34, 197, 94, 0.1);
+ }
+ .ex.ex-completed .ex-sets {
+   color: var(--green);
+ }
